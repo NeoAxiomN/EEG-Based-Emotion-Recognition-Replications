@@ -4,9 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th class="main-header" colspan="1">Method</th>
-      <th class="main-header" colspan="4">Experimental Settings</th>
-      <th class="main-header" colspan="3">Results</th>
+      <th colspan="1">Method</th>
+      <th colspan="4">Experimental Settings</th>
+      <th colspan="3">Results</th>
     </tr>
     <tr>
       <th>Method</th>
@@ -26,16 +26,58 @@
       <td>Arousal</td>
       <td>ACC</td>
       <td rowspan="2">Subject-Dependent<br>10-Fold Cross-Validation</td>
-      <td>93.38 ± 3.73</td>
-      <td>94.22 ± 3.95</td>
+      <td>93.38±3.73</td>
+      <td>94.22±3.95</td>
       <td>+0.84↑</td>
     </tr>
     <tr>
       <td>Valence</td>
       <td>ACC</td>
-      <td>93.72 ± 3.21</td>
-      <td>92.53 ± 5.32</td>
+      <td>93.72±3.21</td>
+      <td>92.53±5.32</td>
       <td>-1.19↓</td>
+    </tr>
+    <tr>
+      <td rowspan="6">HSLT</td>
+      <td rowspan="6">DEAP</td>
+      <td rowspan="2">Arousal</td>
+      <td>ACC</td>
+      <td rowspan="6">Subject-Independent<br>Leave-One-Subject-Out Cross-Validation</td>
+      <td>65.75±8.51</td>
+      <td>64.34±13.45</td>
+      <td>-1.41↓</td>
+    </tr>
+    <tr>
+      <td>F1</td>
+      <td>64.29±10.06</td>
+      <td>60.20±13.86</td>
+      <td>-4.09↓</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Valence</td>
+      <td>ACC</td>
+      <td>66.51±8.53</td>
+      <td>62.91±9.11</td>
+      <td>-3.60↓</td>
+    </tr>
+    <tr>
+      <td>F1</td>
+      <td>66.27±7.29</td>
+      <td>57.99±10.34</td>
+      <td>-8.28↓</td>
+    </tr>
+    <tr>
+      <td rowspan="2">4-Classes</td>
+      <td>ACC</td>
+      <td>56.93±8.22</td>
+      <td>44.97±15.22</td>
+      <td>-11.96↓</td>
+    </tr>
+    <tr>
+      <td>F1</td>
+      <td>54.29±8.59</td>
+      <td>37.69±15.35</td>
+      <td>-16.60↓</td>
     </tr>
   </tbody>
 </table>
