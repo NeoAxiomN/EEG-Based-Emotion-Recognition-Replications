@@ -16,7 +16,7 @@ Just giving it a try.
       <th>Evaluation</th>
       <th>Validation Method</th>
       <th>Reported (%)</th>
-      <th>Ours (%)</th>
+      <th>Replication (%)</th>
       <th>Gap (%)</th>
     </tr>
   </thead>
