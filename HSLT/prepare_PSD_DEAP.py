@@ -163,7 +163,7 @@ class PrepareData:
 if __name__ == '__main__':
     data_path = './DATA/DEAP/data_preprocessed_python'
     os.makedirs(data_path, exist_ok=True)
-    processed_data_dir = './DATA/DEAP/processed_DE_PSD_for_HSLT_test'
+    processed_data_dir = './DATA/DEAP/processed_PSD_for_HSLT_test'
     os.makedirs(processed_data_dir, exist_ok=True)
 
     pd = PrepareData(processed_data_dir)
