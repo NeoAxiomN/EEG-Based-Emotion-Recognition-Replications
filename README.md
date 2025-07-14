@@ -1,31 +1,7 @@
 # EEGLearning
 Just giving it a try.
 
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
-    font-family: sans-serif;
-  }
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-  }
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  .main-header {
-    background-color: #e0e0e0;
-    font-size: 1.1em;
-    padding: 10px;
-  }
-</style>
+
 <table>
   <thead>
     <tr>
