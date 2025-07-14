@@ -24,14 +24,14 @@ Just giving it a try.
       <td rowspan="2">ACRNN</td>
       <td rowspan="2">DEAP</td>
       <td>Arousal</td>
-      <td>ACC<br>(MEAN ± STD. DEV.)</td>
+      <td>ACC</td>
       <td rowspan="2">Subject-Dependent<br>10-Fold Cross-Validation</td> <td>93.38 ± 3.73</td>
       <td>94.22 ± 3.95</td>
       <td>+0.84↑</td>
     </tr>
     <tr>
       <td>Valence</td>
-      <td>ACC<br>(MEAN ± STD. DEV.)</td>
+      <td>ACC</td>
       <td>93.72 ± 3.21</td>
       <td>92.53 ± 5.32</td>
       <td>-1.19↓</td>
