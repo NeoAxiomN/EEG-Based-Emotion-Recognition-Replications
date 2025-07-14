@@ -39,6 +39,8 @@ def log_setting(log_filename, args:dict):
 
 
 def run_full_experiment(
+    original_data_dir,  # e.g. '../DATA/DEAP/data_preprocessed_python'
+    processed_data_dir, # e.g. '../DATA/DEAP/processed_for_ACRNN'
     subject_ids_to_process,
     label_type,
     kfolds=10,
@@ -46,21 +48,21 @@ def run_full_experiment(
     batch_size=64,
     lr=0.001,
     validation_split_ratio=0.2,
-    random_state=42,
+    seed=42,
     device='cuda' if torch.cuda.is_available() else 'cpu',
     log_filename='result.txt',
     patience=10
 ):
     log_setting(log_filename, {
-        'kfolds': kfolds, 'random_state': random_state, 'label_type': label_type,
+        'kfolds': kfolds, 'random_state': seed, 'label_type': label_type,
         'epochs': epochs, 'batch_size': batch_size, 'lr': lr,
     })
 
-    seed_all(random_state)
+    seed_all(seed)
     
-    original_data_dir = '../DATA/DEAP/data_preprocessed_python'
+    original_data_dir = original_data_dir
     os.makedirs(original_data_dir, exist_ok=True)
-    processed_data_dir = '../DATA/DEAP/processed_for_ACRNN' + f'_{label_type}'
+    processed_data_dir = processed_data_dir + f'_{label_type}'
     os.makedirs(processed_data_dir, exist_ok=True)
 
     pd = PrepareData(processed_data_dir)
@@ -72,7 +74,7 @@ def run_full_experiment(
         log2txt(log_filename, f"\n============================== Processing Subject s{sub_idx+1:02d} ==============================")
 
         dataset = EEGDataset(subject_ids=[sub_idx], data_dir=processed_data_dir)
-        kf = KFold(n_splits=kfolds, shuffle=True, random_state=random_state)
+        kf = KFold(n_splits=kfolds, shuffle=True, random_state=seed)
 
         fold_acc = []
 
@@ -148,33 +150,3 @@ def run_full_experiment(
     }
             
 
-
-if __name__ == '__main__':
-    idx_begin = 1
-    idx_end = 32
-
-    epochs = 200
-    time_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
-    EXPERIMENT_PARAMS = {
-        'subject_ids_to_process': list(range(idx_begin-1, idx_end)), 
-        'label_type': 'A',        # 'A', 'V', 'AV'               
-        'kfolds': 10,            
-        'epochs': epochs, 
-        'batch_size': 10,          
-        'lr': 1e-4,       
-        'validation_split_ratio': 0.2, # 80% train, 20% validation from training folds
-        'random_state': 42,        
-        'device': 'cuda' if torch.cuda.is_available() else 'cpu',
-        'log_filename': f'ACRNN_DEAP_10folds_Arousal_{time_str}_result.txt',
-        'patience': epochs // 1
-    }
-
-
-    print(f"Train on {'cuda' if torch.cuda.is_available() else 'cpu'}")
-    final_results = run_full_experiment(**EXPERIMENT_PARAMS)
-    
-    print("\n============================== Final Experiment Results Across All Subjects ==============================")
-    for idx, acc in enumerate(final_results['mean_accuracies']):
-        print(f"Subject {idx+1:02d}: {acc:.4f}")
-    print(f"\nOverall Mean Accuracy: {np.mean(final_results['mean_accuracies']):.4f} ± {final_results['std_accuracies']:.4f}")
