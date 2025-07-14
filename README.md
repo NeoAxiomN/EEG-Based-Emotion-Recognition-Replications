@@ -26,7 +26,6 @@ Just giving it a try.
     padding: 10px;
   }
 </style>
-
 <table>
   <thead>
     <tr>
