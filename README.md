@@ -1,7 +1,7 @@
 
 
 
-# 🚀 EEGLearning
+# 🚀 EEG-Based Emotion Recognition: My Replications
 Under continuous update...
 
 This repository is my personal collection for replicating and exploring various methodologies in EEG-based emotion recognition. My goal is to systematically reproduce key findings from published research, compare my results with reported figures, and provide a clear, accessible overview of different approaches in the field.
